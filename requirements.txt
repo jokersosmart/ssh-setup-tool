@@ -1,0 +1,18 @@
+# SSH Setup Tool - Python Dependencies
+# 
+# 本專案主要使用 Python 標準函式庫，不需要額外安裝套件
+# 但為了完整性，這裡列出專案需求
+
+# Python 版本要求
+# python>=3.6
+
+# 本專案沒有外部依賴，僅使用 Python 標準函式庫：
+# - os
+# - sys
+# - platform
+# - subprocess
+# - pathlib
+# - getpass
+# - abc
+
+# 如果將來需要額外功能，可以在此加入依賴
