@@ -36,4 +36,4 @@ This is a cross-platform SSH and Git environment auto-setup tool designed to sim
 
 ## 授權 | License
 
-此專案採用開源授權 | This project is open source licensed
+授權資訊將在後續添加 | License information will be added in the future
