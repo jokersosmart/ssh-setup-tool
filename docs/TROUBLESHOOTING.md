@@ -34,7 +34,7 @@
 
 **驗證安裝**:
 ```cmd
-ssh-keygen -V
+ssh-keygen --help
 ```
 
 #### Linux (Ubuntu/Debian)

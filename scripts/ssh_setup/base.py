@@ -15,6 +15,9 @@ class SSHSetupBase(ABC):
     子類別需實作平台和目標特定的方法。
     """
     
+    # 命令超時設定（秒）
+    COMMAND_TIMEOUT = 5
+    
     def __init__(self, username: str, email: str):
         """初始化 SSH 設定
         
@@ -24,6 +27,7 @@ class SSHSetupBase(ABC):
         """
         self.username = username
         self.email = email
+        # 這些路徑會在 setup() 執行時被初始化
         self.home_dir: Optional[Path] = None
         self.ssh_dir: Optional[Path] = None
         self.ssh_key_path: Optional[Path] = None
@@ -285,15 +289,15 @@ class SSHSetupBase(ABC):
         print()
     
     # 工具方法
-    @staticmethod
-    def _check_command(command: str) -> bool:
+    @classmethod
+    def _check_command(cls, command: str) -> bool:
         """檢查命令是否存在"""
         try:
             subprocess.run(
                 [command, "--version"],
                 check=True,
                 capture_output=True,
-                timeout=5
+                timeout=cls.COMMAND_TIMEOUT
             )
             return True
         except (subprocess.CalledProcessError, FileNotFoundError, subprocess.TimeoutExpired):

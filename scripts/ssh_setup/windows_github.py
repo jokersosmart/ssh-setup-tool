@@ -37,8 +37,6 @@ class WindowsGitHubSetup(SSHSetupBase):
     
     def create_ssh_config_content(self) -> str:
         """建立 GitHub SSH config 內容"""
-        # 在 Windows 上使用正斜線路徑
-        ssh_key_path = str(self.ssh_key_path).replace("\\", "/")
         return f"""Host {self.GITHUB_HOST}
   HostName {self.GITHUB_SSH_HOST}
   User git
